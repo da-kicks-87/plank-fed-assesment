@@ -3,30 +3,20 @@ import axios from "axios";
 
 
 
-const Card = () => {
-
-    useEffect(() => {
-        async function getCaseStudies() {
-          const response = await axios.get("https://plankdesign.com/wp-json/plank/v1/fed-test/case-studies");
-          console.log(response);
-        }
-        getCaseStudies();
-      }, []);
-
+const Card = ({item}) => {
+  
     return (
       <>
-       <div className="grid grid-cols-3"> 
-        <div className="col-span-1">Image here</div>
-        <div className="col-span-2">
-            <h3>Category here</h3>
-            <hr className="mb-5" />
+            <div className="grid grid-cols-3" key={item.id}> 
+              <div className="col-span-1"><img src={item.thumbnail} /></div>
+              <div className="col-span-2">
+                  <h3>{item.categories[0].title}</h3>
+                  <hr className="mb-5" />
 
-            <h2>Title Here</h2>
-            <p>In quis ipsum neque. Sed non bibendum libero. Etiam malesuada sit amet lacus 
-                in iaculis. Cras arcu turpis, euismod eget laoreet a, ullamcorper eu turpis.</p>
-        </div>
-
-       </div>
+                  <h2>{item.title}</h2>
+                  <p>{item.excerpt}</p>
+              </div>
+            </div>
       </>
     );
 
