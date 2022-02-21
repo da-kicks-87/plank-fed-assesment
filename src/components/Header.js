@@ -1,4 +1,18 @@
-const Header = () => {
+import {useEffect} from "react";
+
+const Header = ({caseStudies, filteredCaseStudies, setFilteredCaseStudies, categories, activeCategory, setActiveCategory}) => {
+
+    useEffect(() => {
+      if (activeCategory === 'All') {
+        setFilteredCaseStudies(caseStudies);
+        return;
+      }
+      const filtered = caseStudies['case-studies'].filter(item => item.categories[0].title === activeCategory);
+      
+      setFilteredCaseStudies({['case-studies']: filtered });
+    
+    }, [activeCategory]);
+
     return (
       <>
         <header className="mb-10">
@@ -6,12 +20,15 @@ const Header = () => {
                 Work
             </h1>
             <nav className="flex flex-row py-5">
-                <a href="" className="uppercase px-4">All</a>  
-                <a href="" className="uppercase px-4">Arts & Culture</a>
-                <a href="" className="uppercase px-4">Non-Profits</a>
-                <a href="" className="uppercase px-4">Publishing & Education</a>
-                <a href="" className="uppercase px-4">Wellness</a>
-                <a href="" className="uppercase px-4">Sports</a>
+                <button className={'uppercase px-4 ' + (activeCategory === 'All' ? 'active' : '')} 
+                onClick={() => setActiveCategory('All')}>
+                  All
+                </button>  
+                {categories.categories.map((category) => {
+                  return (
+                    <button className={'uppercase px-4 ' + (activeCategory === category.title ? 'active' : '')}  onClick={() => setActiveCategory(category.title)} key={category.slug}>{category.title}</button>
+                  )
+                })}
             </nav>
             <hr />
         </header>

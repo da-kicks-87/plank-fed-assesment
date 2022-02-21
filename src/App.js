@@ -8,40 +8,45 @@ import axios from "axios";
 const App = () => {
 
   const [categories, setCategories] = useState({ categories: [] });
+  const [activeCategory, setActiveCategory] = useState('All');
+
   const [caseStudies, setCaseStudies] = useState({['case-studies']: [] });
+  const [filteredCaseStudies, setFilteredCaseStudies] = useState({['case-studies']: [] });
+
   
-
-
   useEffect(() => {
-    const getCategories = async () => {
-        const response = await axios.get('https://plankdesign.com/wp-json/plank/v1/fed-test/categories');
-        setCategories(response.data);
-    };
     getCategories();
-
   }, []);
 
+  const getCategories = async () => {
+    const response = await axios.get('https://plankdesign.com/wp-json/plank/v1/fed-test/categories');
+    setCategories(response.data);
+  };
+
 
   useEffect(() => {
-        const getCaseStudies = async () => {
-          const response = await axios.get("https://plankdesign.com/wp-json/plank/v1/fed-test/case-studies");
-          setCaseStudies(response.data);
-        };
-        getCaseStudies();
-      }, []);
+      getCaseStudies();
+    }, []);
 
+
+  const getCaseStudies = async () => {
+    const response = await axios.get("https://plankdesign.com/wp-json/plank/v1/fed-test/case-studies");
+    setCaseStudies(response.data);
+    setFilteredCaseStudies(response.data);
+  };    
 
  
 
   return (
     <div className="App">
       <div className="container px-4 py-5">
-        <Header />
+        
+        <Header caseStudies={caseStudies} filteredCaseStudies={filteredCaseStudies} setFilteredCaseStudies={setFilteredCaseStudies} categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         
         <div className="grid grid-cols-2 gap-5">
-          {caseStudies['case-studies'].map((caseStudy,i) => {
+          {filteredCaseStudies['case-studies'].map((caseStudy) => {
             return (
-                <Card item={caseStudy} key={caseStudy.slug} />
+                <Card item={caseStudy} key={caseStudy.id} />
               )
           })}
         </div> 

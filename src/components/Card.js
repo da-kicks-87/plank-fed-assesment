@@ -15,6 +15,7 @@ const Card = ({item}) => {
 
                   <h2>{item.title}</h2>
                   <p>{item.excerpt}</p>
+                  <a href={item.link} className="uppercase">View Case Study</a>
               </div>
             </div>
       </>
