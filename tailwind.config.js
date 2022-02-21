@@ -4,6 +4,13 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'white': '#ffffff',
+      'soft-black': '#181818',
+      'soft-grey': '#EEECEC' 
+    },
     container: {
       center: true,
       screens: {

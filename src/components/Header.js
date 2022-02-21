@@ -16,17 +16,15 @@ const Header = ({caseStudies, filteredCaseStudies, setFilteredCaseStudies, categ
     return (
       <>
         <header className="mb-10">
-            <h1 className="text-5xl font-bold uppercase mb-5">
-                Work
-            </h1>
+            <h1 className="text-5xl font-bold uppercase mb-5 tracking-widest">Work</h1>
             <nav className="flex flex-row py-5">
-                <button className={'uppercase px-4 ' + (activeCategory === 'All' ? 'active' : '')} 
+                <button className={'uppercase px-6 py-1 mr-2 font-medium' + (activeCategory === 'All' ? 'active border border-soft-grey' : '')} 
                 onClick={() => setActiveCategory('All')}>
                   All
                 </button>  
                 {categories.categories.map((category) => {
                   return (
-                    <button className={'uppercase px-4 ' + (activeCategory === category.title ? 'active' : '')}  onClick={() => setActiveCategory(category.title)} key={category.slug}>{category.title}</button>
+                    <button className={'uppercase px-6 py-1 mr-2  font-medium' + (activeCategory === category.title ? 'active border border-soft-grey' : '')}  onClick={() => setActiveCategory(category.title)} key={category.slug}>{category.title}</button>
                   )
                 })}
             </nav>

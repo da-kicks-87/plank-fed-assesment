@@ -38,12 +38,12 @@ const App = () => {
  
 
   return (
-    <div className="App">
+    <div className="App text-soft-grey">
       <div className="container px-4 py-5">
         
         <Header caseStudies={caseStudies} filteredCaseStudies={filteredCaseStudies} setFilteredCaseStudies={setFilteredCaseStudies} categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-12">
           {filteredCaseStudies['case-studies'].map((caseStudy) => {
             return (
                 <Card item={caseStudy} key={caseStudy.id} />
