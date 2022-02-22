@@ -1,3 +1,16 @@
+# FED Code Assement - intermediate
+Tech stack used: Create React App, Axios, TailwindCSS, SVGR
+
+API connection made with Axios with React' Hook useEffect. Data is stored with React Hook useState.
+Filtering is done with JS logic with the React States.
+
+Styled with TailwindCSS. Makes use of modern CSS Grid and Flexbox. 
+
+Mobile Responsive
+
+SVGs are made into React componentes with the help og SVGR library.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

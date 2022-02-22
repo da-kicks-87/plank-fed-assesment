@@ -50,7 +50,7 @@ const App = () => {
         
         <Header caseStudies={caseStudies} filteredCaseStudies={filteredCaseStudies} setFilteredCaseStudies={setFilteredCaseStudies} categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         
-        <div className="grid grid-cols-2 gap-12">
+        <div className="grid grid-cols-1  md:grid-cols-2 gap-12">
           {filteredCaseStudies['case-studies'].map((caseStudy) => {
             return (
                 <Card item={caseStudy} key={caseStudy.id} />
@@ -61,7 +61,7 @@ const App = () => {
       </div>
 
      
-        <div className="flex justify-between items-end z-0 h-20">
+        <div className="flex justify-between items-end z-0 h-20 mt-10 md:mt-0 ">
             <SvgAsset3 className="z-0" />
             <SvgAsset1 className="z-0"/>
         </div>
