@@ -1,8 +1,13 @@
 import React, {useState, useEffect} from "react";
 import Header from './components/Header.js';
 import Card from './components/Card.js';
+import SvgAsset1 from "./components/svgs/Asset1.js";
+import SvgAsset2 from "./components/svgs/Asset2.js";
+import SvgAsset3 from "./components/svgs/Asset3.js";
+
 
 import axios from "axios";
+
 
 
 const App = () => {
@@ -39,7 +44,9 @@ const App = () => {
 
   return (
     <div className="App text-soft-grey">
-      <div className="container px-4 py-5">
+
+    <SvgAsset2 className="mr-0 ml-auto" />
+      <div className="container px-4 py-5 z-10">
         
         <Header caseStudies={caseStudies} filteredCaseStudies={filteredCaseStudies} setFilteredCaseStudies={setFilteredCaseStudies} categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         
@@ -52,6 +59,14 @@ const App = () => {
         </div> 
         
       </div>
+
+     
+        <div className="flex justify-between items-end z-0 h-20">
+            <SvgAsset3 className="z-0" />
+            <SvgAsset1 className="z-0"/>
+        </div>
+     
+      
     </div>
   );
 };
