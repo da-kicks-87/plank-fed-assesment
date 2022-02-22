@@ -1,4 +1,4 @@
-# FED Code Assement - intermediate
+# Plank FED Code Assement - intermediate
 Tech stack used: Create React App, Axios, TailwindCSS, SVGR
 
 API connection made with Axios with React' Hook useEffect. Data is stored with React Hook useState.
@@ -8,8 +8,7 @@ Styled with TailwindCSS. Makes use of modern CSS Grid and Flexbox.
 
 Mobile Responsive
 
-SVGs are made into React componentes with the help og SVGR library.
-
+SVGs are made into React components with the help of SVGR library.
 
 # Getting Started with Create React App
 
